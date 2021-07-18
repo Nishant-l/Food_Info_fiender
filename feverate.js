@@ -1,5 +1,6 @@
 // Cashing the DOM
 const fevList=document.querySelector('#fevList');
+const homeButton=document.querySelector('#home');
 
 // retreving Data and dynamically adding element to HTML
 let listElement=JSON.parse(localStorage.getItem('fev'));
@@ -33,4 +34,8 @@ fevList.addEventListener('click',(e)=>{
         localStorage.setItem('id',clickedElement.id);
         location.href='./foodInfo.html';
     }
+})
+
+homeButton.addEventListener('click',()=>{
+    location.href='./index.html';
 })

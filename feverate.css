@@ -1,0 +1,38 @@
+body{
+    background-color: black;
+    border-top: 4px solid pink;
+    color: aliceblue;
+}
+nav{
+    display: flex;
+    margin: 1em;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ul li{
+    display: flex;
+    height: 6em;
+    width: 6em;
+    background-color: #00bcd4;
+    margin: 1em;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    text-align: center;
+    padding: 0.4em;
+    color: black;
+    /* font-size: 1em;*/
+}
+ul li:hover{
+    cursor: pointer;
+}
