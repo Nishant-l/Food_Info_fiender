@@ -10,6 +10,7 @@ const searchBox=document.querySelector('#searchBox');
 const searchList=document.querySelector('#searchList');
 const searchBar=document.querySelector('#searchBar');
 const listt=searchBar.querySelector('#listt');
+const fevButton=document.querySelector('#fevlist');
 
 //adding event listners 
 searchBox.addEventListener('keyup',(e)=>{ //search box reasults
@@ -118,3 +119,6 @@ searchBar.addEventListener('click',(e)=>{ //gating info about food clicked
     }
 })
 
+fevButton.addEventListener('click',()=>{
+    location.href='./feverate.html';
+})
