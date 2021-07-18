@@ -3,7 +3,7 @@
     const imgEle=document.querySelector('img');
     const nameEle=document.querySelector('#name');
     const info=document.querySelector('#info');
-    fetch(`https:www.themealdb.com/api/json/v1/1/lookup.php?i=${localStorage.id}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${localStorage.id}`)
     .then((res)=>{
         // location.href='./index2.html'
         return res.json()
