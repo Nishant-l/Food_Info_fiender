@@ -12,10 +12,11 @@ const searchBar=document.querySelector('#searchBar');
 const listt=searchBar.querySelector('#listt');
 
 //adding event listners 
-// button.addEventListener('click',get);
-
 searchBox.addEventListener('keyup',(e)=>{ //search box reasults
     console.log(e.target.value)
+    let fev=localStorage.getItem('fev');
+    console.log(fev+'----------------------------')
+    fev=JSON.parse(fev);
     if(e.target.value===''){ //to check if empty string is entered
         const listt=searchBar.querySelector('#listt');
         if(listt!=null){
@@ -42,17 +43,34 @@ searchBox.addEventListener('keyup',(e)=>{ //search box reasults
             return data
         })
         .then((data)=>{
-            // data.map((e)=>{
-            //     console.log(e.name);
-            // })
             let list=document.createElement('ul');
             list.setAttribute('id','listt');
-            data.map((e)=>{
+            for(let e of data){
                 let node=document.createElement('li');
+                let button=document.createElement('button');
+                button.append(document.createTextNode('addToFev'));
+                button.setAttribute('id',e.id);
                 node.appendChild(document.createTextNode(e.name));
+                console.log
+                if(fev==null||fev.hasOwnProperty(e.id)==false){
+                    node.appendChild(button);}
                 node.setAttribute('id',e.id);
                 list.appendChild(node);
-            })
+            }
+            // data.map((e)=>{
+            //     let node=document.createElement('li');
+            //     // let icon=document.createElement('img');
+            //     // icon.setAttribute('src','./static_assets/star_outline_black_24dp.svg');
+            //     // icon.setAttribute('class','fev_button');
+            //     let button=document.createElement('button');
+            //     button.append(document.createTextNode('addToFev'));
+            //     button.setAttribute('id',e.id);
+            //     node.appendChild(document.createTextNode(e.name));
+            //     node.appendChild(button);
+            //     // node.appendChild(icon);
+            //     node.setAttribute('id',e.id);
+            //     list.appendChild(node);
+            // })
             return list;
         })
         .then((data)=>{
@@ -70,11 +88,24 @@ searchBox.addEventListener('keyup',(e)=>{ //search box reasults
 })
 
 searchBar.addEventListener('click',(e)=>{ //gating info about food clicked 
-    if(e.target.id>0){
+    console.log(e.target.tagName);
+    if(e.target.id>0 && e.target.tagName!='BUTTON'){
         console.log(e.target.id);
         localStorage.setItem('id',e.target.id);
         location.href='./foodInfo.html'
     }
-    // get(e.target.id);
+    else if(e.target.tagName==='BUTTON'){
+        let fev=localStorage.getItem('fev');
+        if(fev==null){
+            let tempp={};
+            tempp[e.target.id]=true;
+            localStorage.setItem('fev',JSON.stringify(tempp));
+        }else{
+            fev=JSON.parse(fev);
+            fev[e.target.id]=true;
+            localStorage.setItem('fev',JSON.stringify(fev));
+            console.log(fev);
+        }
+    }
 })
 

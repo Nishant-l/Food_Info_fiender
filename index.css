@@ -2,3 +2,12 @@ body{
     /* background-color: black; */
     margin: 0%;
 }
+ul li{
+    height: 50px;
+    width: 60vw;
+    background-color: beige;
+    border: 2px solid red;
+}
+#star:hover{
+    fill: red;
+}
