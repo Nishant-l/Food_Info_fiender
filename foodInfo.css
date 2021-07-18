@@ -1,5 +1,8 @@
 body{
     margin: 0px;
+    background-color: black;
+    color: whitesmoke;
+    border-top: 4px solid yellow;
 }
 nav{
     display: flex;
@@ -18,16 +21,56 @@ nav{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 3em;
+    margin-left: -5em;
 }
 #box img{
-    height: 50%;
-    width: 35%;
-    border: 8px solid black;
+    height: 25%;
+    width: 25%;
+    border: 8px solid rgb(47, 46, 46);
     border-radius: 10%;
-    margin-right: 3%;
+    margin-right: 6%;
 }
 #box p{
     display: inline-block;
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
+    text-align: justify;
 }
+#container h2{
+    color: red;
+    font-size: 2em;
+    font-weight: 400;
+    font-family: fantasy;
+}
+@media only screen and (max-width: 1050px) {
+    body {
+      background-color:black;
+    }
+    #box{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3em;
+        /* margin-left: -em; */
+    }
+    #box img{
+        height: 40vw;
+        width: 40vw;
+        border: 8px solid rgb(47, 46, 46);
+        border-radius: 10%;
+        margin-right: -7%;
+        margin-bottom: 6%;
+    }
+    #box p{
+        display: inline-block;
+        height: 100%;
+        width: 150%;
+        text-align: justify;
+        margin-left: 13%;
+    }
+    #box h3{
+         margin-left: 15% !important;
+    }
+  }

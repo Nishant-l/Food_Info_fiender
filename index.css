@@ -24,6 +24,7 @@ nav button{
     width: 6em;
     border: 4px solid purple;
     margin-top: 3em;
+    margin-left: 2em;
     background-color: #f2d0e1;
     border-radius: 2em;
 }
@@ -44,6 +45,11 @@ ul li{
 }
 ul li:hover{
     background-color: bisque;
+}
+ul li button{
+    border: 2px solid red;
+    border-radius: 4em;
+    background-color: rgb(218, 159, 159);
 }
 #searchBox{
     width: 50vw;
