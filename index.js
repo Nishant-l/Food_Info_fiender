@@ -49,7 +49,7 @@ searchBox.addEventListener('keyup',(e)=>{ //search box reasults
                 let node=document.createElement('li');
                 let button=document.createElement('button');
                 button.append(document.createTextNode('addToFev'));
-                button.setAttribute('id',e.id);
+                button.setAttribute('id',JSON.stringify({no:e.id,name:e.name}));
                 node.appendChild(document.createTextNode(e.name));
                 console.log
                 if(fev==null||fev.hasOwnProperty(e.id)==false){
@@ -89,23 +89,32 @@ searchBox.addEventListener('keyup',(e)=>{ //search box reasults
 
 searchBar.addEventListener('click',(e)=>{ //gating info about food clicked 
     console.log(e.target.tagName);
-    if(e.target.id>0 && e.target.tagName!='BUTTON'){
-        console.log(e.target.id);
-        localStorage.setItem('id',e.target.id);
-        location.href='./foodInfo.html'
+    // when clicked on list and not on fev button take to newpage;
+    if(e.target.id>0&&e.target.tagName!='BUTTON'){                 //\\
+        console.log(e.target.id);              //   dont
+        localStorage.setItem('id',e.target.id);//   touch
+        location.href='./foodInfo.html'        //   \\//
     }
+    // when clicked on fev button
     else if(e.target.tagName==='BUTTON'){
+        let clickedElementId=JSON.parse(e.target.id);
+        // console.log(clickedElementId)
+        let id=clickedElementId.no;
+        let name=clickedElementId.name;
+        // console.log(id);
+        // console.log(name);
         let fev=localStorage.getItem('fev');
         if(fev==null){
             let tempp={};
-            tempp[e.target.id]=true;
+            tempp[id]=name;
             localStorage.setItem('fev',JSON.stringify(tempp));
         }else{
             fev=JSON.parse(fev);
-            fev[e.target.id]=true;
+            fev[id]=name;
             localStorage.setItem('fev',JSON.stringify(fev));
             console.log(fev);
         }
+        e.target.remove();
     }
 })
 
