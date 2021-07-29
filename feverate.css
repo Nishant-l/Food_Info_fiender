@@ -39,3 +39,6 @@ ul li:hover{
 #home{
     cursor: pointer;
 }
+button:hover{
+    cursor: pointer;
+}
