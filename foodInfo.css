@@ -44,6 +44,12 @@ nav{
     font-family: fantasy;
     text-align: center;
 }
+#HomePage:hover{
+    cursor: pointer;
+}
+#fevList:hover{
+    cursor: pointer;
+}
 @media only screen and (max-width: 1050px) {
     body {
       background-color:black;
